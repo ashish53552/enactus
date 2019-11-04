@@ -193,7 +193,7 @@ app.get('/auth/facebook',
   passport.authenticate('facebook'));
 
 app.get('/auth/facebook/downloads',
-  passport.authenticate('facebook', { failureRedirect: '/sigin' }),
+  passport.authenticate('facebook', { failureRedirect: '/signin' }),
   function(req, res) {
     res.redirect('/downloads');
   });
