@@ -193,7 +193,7 @@ app.get('/auth/facebook',
   passport.authenticate('facebook'));
 
 app.get('/auth/facebook/downloads',
-  passport.authenticate('facebook', { failureRedirect: '/signin' }),
+  passport.authenticate('facebook', { failureRedirect: '/' }),
   function(req, res) {
     res.redirect('/downloads');
   });
@@ -257,8 +257,7 @@ app.post("/", function(req, res){
   req.login(user, function(err){
     if (err) {
       console.log(err);
-      window.alert("Wrong Email or Password");
-      res.redirect("/signin");
+      res.redirect("/");
     } else {
       passport.authenticate("local")(req, res, function(){
         res.redirect("/downloads");
